@@ -1,0 +1,46 @@
+[2022-09-20 05:11:58] Executing bootstrap tasks
+[2022-09-20 05:11:58] OpenJDK Runtime Environment 17.0.4.1+1
+[2022-09-20 05:11:58] Product org.eclipse.products.epp.package.java.2022-09
+[2022-09-20 05:11:58] Bundle org.eclipse.oomph.setup 1.25.0.v20220903-1123, build=5632, branch=e5d50810299859e75a8731a209e2f3442e7a94f5
+[2022-09-20 05:11:58] Bundle org.eclipse.oomph.setup.core 1.25.0.v20220822-1127, build=5632, branch=e5d50810299859e75a8731a209e2f3442e7a94f5
+[2022-09-20 05:11:58] Bundle org.eclipse.oomph.setup.p2 1.19.0.v20220607-1104, build=5632, branch=e5d50810299859e75a8731a209e2f3442e7a94f5
+[2022-09-20 05:11:58] Performing P2 Director (Eclipse IDE for Java Developers (2022-09))
+[2022-09-20 05:11:58] Offline = false
+[2022-09-20 05:11:58] Mirrors = true
+[2022-09-20 05:11:58] Resolving 17 requirements from 3 repositories to C:\Users\sh\Desktop\Hari_java_appilications\eclipse\configuration\org.eclipse.oomph.setup\eclipse
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:epp.package.java [4.25.0,5.0.0) (filter=(|(&(osgi.arch=aarch64)(osgi.os=linux)(osgi.ws=gtk))(&(osgi.arch=aarch64)(osgi.os=macosx)(osgi.ws=cocoa))(&(osgi.arch=x86_64)(osgi.os=linux)(osgi.ws=gtk))(&(osgi.arch=x86_64)(osgi.os=macosx)(osgi.ws=cocoa))(&(osgi.arch=x86_64)(osgi.os=win32)(osgi.ws=win32))))
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.platform.feature.group [4.25.0,5.0.0)
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.rcp.feature.group [4.25.0,5.0.0)
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.buildship.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.eclemma.feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.egit.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.epp.mpc.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.jdt.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.jgit.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.m2e.feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.m2e.lemminx.feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.m2e.logback.feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.mylyn.wikitext_feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.tips.feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.tm.terminal.feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.wildwebdeveloper.xml.feature.feature.group
+[2022-09-20 05:11:58] Requirement org.eclipse.equinox.p2.iu:org.eclipse.oomph.setup.feature.group
+[2022-09-20 05:11:58] Repository https://download.eclipse.org/technology/epp/packages/2022-09/202209081200
+[2022-09-20 05:11:58] Repository https://download.eclipse.org/releases/2022-09/202209141001
+[2022-09-20 05:11:58] Repository https://download.eclipse.org/oomph/updates/milestone/latest
+[2022-09-20 05:12:30] java.lang.IllegalStateException: Attempt to access stopped agent: org.eclipse.equinox.internal.p2.core.ProvisioningAgent@644b68d8
+  at org.eclipse.equinox.internal.p2.core.ProvisioningAgent.checkRunning(ProvisioningAgent.java:86)
+  at org.eclipse.equinox.internal.p2.core.ProvisioningAgent.getService(ProvisioningAgent.java:50)
+  at org.eclipse.equinox.internal.p2.engine.SimpleProfileRegistry.ignoreExistingProfile(SimpleProfileRegistry.java:313)
+  at org.eclipse.equinox.internal.p2.engine.SimpleProfileRegistry.internalGetProfile(SimpleProfileRegistry.java:266)
+  at org.eclipse.equinox.internal.p2.engine.SimpleProfileRegistry.getProfile(SimpleProfileRegistry.java:192)
+  at org.eclipse.oomph.p2.internal.core.AgentImpl.getCurrentProfile(AgentImpl.java:397)
+  at org.eclipse.oomph.setup.p2.impl.P2TaskImpl.perform(P2TaskImpl.java:941)
+  at org.eclipse.oomph.setup.internal.core.SetupTaskPerformer.doPerformNeededSetupTasks(SetupTaskPerformer.java:3864)
+  at org.eclipse.oomph.setup.internal.core.SetupTaskPerformer.performNeededSetupTasks(SetupTaskPerformer.java:3792)
+  at org.eclipse.oomph.setup.internal.core.SetupTaskPerformer.performTriggeredSetupTasks(SetupTaskPerformer.java:3773)
+  at org.eclipse.oomph.setup.internal.core.SetupTaskPerformer.perform(SetupTaskPerformer.java:3651)
+  at org.eclipse.oomph.setup.internal.installer.SimpleVariablePage.installPerform(SimpleVariablePage.java:1353)
+  at org.eclipse.oomph.setup.internal.installer.SimpleVariablePage$20.run(SimpleVariablePage.java:1165)
+
+[2022-09-20 05:12:30] 

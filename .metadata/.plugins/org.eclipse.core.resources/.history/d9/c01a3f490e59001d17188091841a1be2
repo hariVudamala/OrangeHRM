@@ -1,0 +1,249 @@
+package com.OrangeHRM_Application;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class AddEmployeeFunctionality extends  LoginFunctionality {
+	
+	@Test(priority=5)
+	public void AddEmployeeTextValidation() throws IOException
+	{
+		FileInputStream file=new FileInputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+		XSSFWorkbook workbook=new XSSFWorkbook(file);
+		XSSFSheet sheet=workbook.getSheet("sheet1");
+		Row row=sheet.getRow(1);
+		Cell AddEmployeeTextCell=row.getCell(8);
+		String ExpectedAddEmployeeText=AddEmployeeTextCell.getStringCellValue();
+		System.out.println("expected addemployee text:"+ExpectedAddEmployeeText);
+		
+		WebElement AddEmployeeElement=dr.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[1]/h1"));
+		String actualAddemployeeText=AddEmployeeElement.getText();
+		System.out.println("actual add employee text:"+actualAddemployeeText);
+		Cell ActalAddEmployeeTextcell=row.createCell(9);
+		ActalAddEmployeeTextcell.setCellValue(actualAddemployeeText);
+		    
+		Cell AddEmployeeResultcell=row.createCell(10);
+		if(actualAddemployeeText.equals(ExpectedAddEmployeeText))
+		{
+		 System.out.println("add empolyee text is matched-pass");
+		 AddEmployeeResultcell.setCellValue("pass");
+				 
+		}
+		else
+		{
+		 System.out.println("add empolyee tet is not matched-fail");
+		 AddEmployeeResultcell.setCellValue("fail");
+		}
+	FileOutputStream file1=new FileOutputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+	workbook.write(file1);
+	}
+	
+	
+	@Test(priority=6)
+	public void AddEmployeeFuctionality() throws IOException, InterruptedException
+	{
+		
+	FileInputStream file=new FileInputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+	XSSFWorkbook workbook=new XSSFWorkbook(file);
+	XSSFSheet sheet=workbook.getSheet("sheet1");
+	int row_count=sheet.getLastRowNum();
+	System.out.println("number of rows of data in Excel:"+row_count);
+	for(int i=1;i<row_count;i++)
+	{
+		Row row=sheet.getRow(i);
+		Cell FirstNameCell=row.getCell(11);
+		Cell MiddleNamecell=row.getCell(12);
+		Cell LastNamecell=row.getCell(13);
+		
+		String FirstName=FirstNameCell.getStringCellValue();
+		String MiddleName=MiddleNamecell.getStringCellValue();
+		String LastName=LastNamecell.getStringCellValue();
+		
+		dr.findElement(By.id("firstName")).clear();
+		dr.findElement(By.id("firstName")).sendKeys(FirstName);
+		dr.findElement(By.id("middleName")).clear();
+		dr.findElement(By.id("middleName")).sendKeys(MiddleName);
+		dr.findElement(By.id("lastName")).clear();
+		dr.findElement(By.id("lastName")).sendKeys(LastName);
+		dr.findElement(By.id("btnSave")).click();
+		
+		dr.navigate().back();
+	}
+		
+	}
+		@Test(priority=7)
+	public void ValidationOfEmployeeId() throws IOException
+	{
+		WebElement employeeIdvalue=dr.findElement(By.id("employeeId"));
+		String expectedEmployeeId=employeeIdvalue.getAttribute("value");
+		
+		FileInputStream file=new FileInputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+		XSSFWorkbook workbook=new XSSFWorkbook(file);
+		XSSFSheet sheet=workbook.getSheet("sheet1");
+		
+		Row row=sheet.getRow(1);
+		Cell FirstNameCell=row.getCell(11);
+		Cell MiddleNamecell=row.getCell(12);
+		Cell LastNamecell=row.getCell(13);
+		
+		String FirstName=FirstNameCell.getStringCellValue();
+		String MiddleName=MiddleNamecell.getStringCellValue();
+		String LastName=LastNamecell.getStringCellValue();
+		
+		
+		dr.findElement(By.id("firstName")).clear();
+		dr.findElement(By.id("firstName")).sendKeys(FirstName);
+		dr.findElement(By.id("middleName")).clear();
+		dr.findElement(By.id("middleName")).sendKeys(MiddleName);
+		dr.findElement(By.id("lastName")).clear();
+		dr.findElement(By.id("lastName")).sendKeys(LastName);
+		dr.findElement(By.id("btnSave")).click();
+		
+		
+		
+		WebElement EmployeeIdElement=dr.findElement(By.name("personal[txtEmployeeId]"));
+		String actualEmployeeId=EmployeeIdElement.getAttribute("value");
+
+		System.out.println("actual employee id:"+actualEmployeeId); 
+		System.out.println("expected employee id is:"+expectedEmployeeId);
+		
+		Cell expectedEmployeeIdCell=row.createCell(14);
+		expectedEmployeeIdCell.setCellValue(expectedEmployeeId);
+		
+		Cell ActualEmployeeIdCell=row.createCell(15);
+		ActualEmployeeIdCell.setCellValue(actualEmployeeId);
+		
+		Cell EmployyeIdResultCell=row.createCell(16);
+		if(actualEmployeeId.equals(expectedEmployeeId))
+		{
+			System.out.println("employee id is matched-pass ");
+			EmployyeIdResultCell.setCellValue("pass");
+		}
+		else
+		{
+			System.out.println("employee id is not matched- fail");
+			EmployyeIdResultCell.setCellValue("fail");
+		}
+		FileOutputStream file1=new FileOutputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+		workbook.write(file1);
+		
+		System.out.println("Employee Name:"+actualEmployeeId+" "+FirstName+"  "+MiddleName+"  "+LastName);
+	}
+		@Test(priority=8)
+		public void ValidationOfFirstName() throws IOException
+		{
+			WebElement firstNameElement=dr.findElement(By.id("personal_txtEmpFirstName"));
+			String ActualFirstName=firstNameElement.getAttribute("value");
+			System.out.println("actual first name:"+ActualFirstName);
+			
+			FileInputStream file=new FileInputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+			XSSFWorkbook workbook=new XSSFWorkbook(file);
+			XSSFSheet sheet=workbook.getSheet("sheet1");
+			Row row=sheet.getRow(1);
+			
+			Cell FirstNameCell=row.getCell(11);
+			String ExpectedFirstName=FirstNameCell.getStringCellValue();
+			
+			Cell ActualFirstNameCell=row.createCell(17);
+			ActualFirstNameCell.setCellValue(ActualFirstName);
+			
+			Cell FirstNameResultCell=row.createCell(18);
+			System.out.println("expected first name:"+ExpectedFirstName);
+			if(ActualFirstName.equals(ExpectedFirstName))
+			{
+				System.out.println("first name is matched-pass");
+				FirstNameResultCell.setCellValue("pass");
+			}
+			else
+			{
+				System.out.println("first name is not matched-fail");
+				FirstNameResultCell.setCellValue("fail");
+			}
+			FileOutputStream file1=new FileOutputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+			workbook.write(file1);
+			
+			
+		}
+		@Test(priority=9)
+		public void ValidationOfMiddleName() throws IOException
+		{
+			WebElement middleNameElement=dr.findElement(By.id("personal_txtEmpMiddleName"));
+			String actualMiddleName=middleNameElement.getAttribute("value");
+			System.out.println("actual middle name:"+actualMiddleName);
+			
+			FileInputStream file=new FileInputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+			XSSFWorkbook workbook=new XSSFWorkbook(file);
+			XSSFSheet sheet=workbook.getSheet("sheet1");
+			Row row=sheet.getRow(1);
+			
+			Cell MiddleNameCell=row.getCell(12);
+			String ExpectedMiddleName=MiddleNameCell.getStringCellValue();
+			System.out.println("expected middle name:"+ExpectedMiddleName);
+			
+			Cell ActualMiddleNameCell=row.createCell(19);
+			ActualMiddleNameCell.setCellValue(actualMiddleName);
+			
+			Cell MiddleNameResultCell=row.createCell(20);
+			if( actualMiddleName.equals(ExpectedMiddleName))
+			{
+				System.out.println("middle name is matched-pass");
+				MiddleNameResultCell.setCellValue("pass");
+			}
+			else
+			{
+				System.out.println("middle name is not matched- fail");
+				MiddleNameResultCell.setCellValue("fail");
+			}
+			FileOutputStream file1=new FileOutputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+			workbook.write(file1);
+			
+		}
+		@Test(priority=10)
+		public void ValidationOfLastName() throws IOException
+		{
+			WebElement lastNameElement=dr.findElement(By.id("personal_txtEmpLastName"));
+		String actualLastName=lastNameElement.getAttribute("value");
+		System.out.println("actual last name:"+actualLastName);
+		
+		FileInputStream file=new FileInputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+		XSSFWorkbook workbook=new XSSFWorkbook(file);
+		XSSFSheet sheet=workbook.getSheet("sheet1");
+		Row row=sheet.getRow(1);
+		
+		Cell LastNameCell=row.getCell(13);
+		String ExpectedLastName=LastNameCell.getStringCellValue();
+		System.out.println("expected Last name:"+ExpectedLastName);
+		
+		Cell ActualLastNameCell=row.createCell(21);
+		ActualLastNameCell.setCellValue(actualLastName);
+		
+		Cell LastNameResultCell=row.createCell(22);
+		if(actualLastName.equals(ExpectedLastName))
+		{
+			System.out.println("last name is matched-pass");
+			LastNameResultCell.setCellValue("pass");
+		}
+		else
+		{
+			System.out.println("last name is not matched-fail");
+			LastNameResultCell.setCellValue("fail");
+		}
+		FileOutputStream file1=new FileOutputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\input data.xlsx");
+		workbook.write(file1);
+	
+			
+		}
+		
+	
+
+}

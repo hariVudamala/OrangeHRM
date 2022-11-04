@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="OrangeHRM Application">
+  <test name="LogInTest">
+    <classes>
+      <class name="com.OrangeHRM_Application.LoginFunctionality"/>
+    </classes>
+ </test>
+
+<test name="AddEmployee">
+    <classes>
+      <class name="com.OrangeHRM_Application.AddEmployeeFunctionality"/>
+    </classes>
+ </test>
+
+
+<test name="EmployeeList">
+    <classes>
+      <class name="com.OrangeHRM_Application.SaveEmployeeListInExcel"/>
+    </classes>
+ </test>
+
+</suite>

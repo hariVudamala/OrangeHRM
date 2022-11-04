@@ -1,0 +1,29 @@
+package com.orangeHRM;
+
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Ex {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver dr;
+		String ApplicationUrlAddress="https://www.tsrtconline.in/oprs-web/";
+		System.setProperty("webdriver.chrome.driver","./DriverFiles/chromedriver.exe");
+		dr=new ChromeDriver();
+		dr.get(ApplicationUrlAddress);
+		dr.manage().window().maximize();
+		
+	WebElement CityFromElement=dr.findElement(By.id("fromPlaceName"));
+	List<WebElement>cityNames=CityFromElement.findElements(By.tagName("options"));
+	
+	int cityNames_count=cityNames.size();
+	System.out.println("number of citys from:"+cityNames_count);
+	}
+
+}

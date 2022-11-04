@@ -1,0 +1,31 @@
+package com.orangeHRM;
+
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Ex {
+
+	private static final WebElement HYDERABAD = null;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver dr;
+		String ApplicationUrlAddress="https://www.tsrtconline.in/oprs-web/";
+		System.setProperty("webdriver.chrome.driver","./DriverFiles/chromedriver.exe");
+		dr=new ChromeDriver();
+		dr.get(ApplicationUrlAddress);
+		dr.manage().window().maximize();
+		
+	WebElement fromCity=dr.findElement(By.id("fromPlaceName"));
+	fromCity.sendKeys("HYDERABAD");
+		fromCity.click();
+	
+	}
+
+}

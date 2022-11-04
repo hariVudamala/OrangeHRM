@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="13" passed="13" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-03T16:34:56 PDT" name="Default suite" finished-at="2022-11-03T16:38:00 PDT" duration-ms="183993">
+    <groups>
+    </groups>
+    <test started-at="2022-11-03T16:34:56 PDT" name="Default test" finished-at="2022-11-03T16:38:00 PDT" duration-ms="183993">
+      <class name="com.OrangeHRM_Application.SaveEmployeeListInExcel">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:34:56 PDT" name="setup" finished-at="2022-11-03T16:35:04 PDT" duration-ms="7904" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="ValidationOfLogInPage()[pri:1, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:35:04 PDT" name="ValidationOfLogInPage" finished-at="2022-11-03T16:35:08 PDT" duration-ms="4094" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidationOfLogInPage -->
+        <test-method signature="Login()[pri:2, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:35:08 PDT" name="Login" finished-at="2022-11-03T16:35:13 PDT" duration-ms="4238" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ValidationOfAdminText()[pri:3, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:35:13 PDT" name="ValidationOfAdminText" finished-at="2022-11-03T16:35:14 PDT" duration-ms="921" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidationOfAdminText -->
+        <test-method signature="goThrowPIMandAddEmployee()[pri:4, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:35:14 PDT" name="goThrowPIMandAddEmployee" finished-at="2022-11-03T16:35:18 PDT" duration-ms="4835" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goThrowPIMandAddEmployee -->
+        <test-method signature="AddEmployeeTextValidation()[pri:5, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:35:18 PDT" name="AddEmployeeTextValidation" finished-at="2022-11-03T16:35:19 PDT" duration-ms="351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddEmployeeTextValidation -->
+        <test-method signature="AddEmployeeFuctionality()[pri:6, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:35:19 PDT" name="AddEmployeeFuctionality" finished-at="2022-11-03T16:36:06 PDT" duration-ms="47293" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddEmployeeFuctionality -->
+        <test-method signature="ValidationOfEmployeeId()[pri:7, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:36:06 PDT" name="ValidationOfEmployeeId" finished-at="2022-11-03T16:36:12 PDT" duration-ms="5389" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidationOfEmployeeId -->
+        <test-method signature="ValidationOfFirstName()[pri:8, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:36:12 PDT" name="ValidationOfFirstName" finished-at="2022-11-03T16:36:12 PDT" duration-ms="267" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidationOfFirstName -->
+        <test-method signature="ValidationOfMiddleName()[pri:9, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:36:12 PDT" name="ValidationOfMiddleName" finished-at="2022-11-03T16:36:12 PDT" duration-ms="285" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidationOfMiddleName -->
+        <test-method signature="ValidationOfLastName()[pri:10, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:36:12 PDT" name="ValidationOfLastName" finished-at="2022-11-03T16:36:12 PDT" duration-ms="231" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidationOfLastName -->
+        <test-method signature="ClickOnEmployeeList()[pri:11, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:36:12 PDT" name="ClickOnEmployeeList" finished-at="2022-11-03T16:36:24 PDT" duration-ms="12062" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClickOnEmployeeList -->
+        <test-method signature="CapturingEmployeeListIntoExcel()[pri:12, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:36:24 PDT" name="CapturingEmployeeListIntoExcel" finished-at="2022-11-03T16:38:00 PDT" duration-ms="95905" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CapturingEmployeeListIntoExcel -->
+        <test-method signature="Logout()[pri:13, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:38:00 PDT" name="Logout" finished-at="2022-11-03T16:38:00 PDT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Logout -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.OrangeHRM_Application.SaveEmployeeListInExcel@57c758ac]" started-at="2022-11-03T16:38:00 PDT" name="teardown" finished-at="2022-11-03T16:38:00 PDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.OrangeHRM_Application.SaveEmployeeListInExcel -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

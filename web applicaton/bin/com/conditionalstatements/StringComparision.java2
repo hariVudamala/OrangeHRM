@@ -1,0 +1,27 @@
+package com.conditionalstatements;
+
+public class StringComparision {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    String a="hari";
+    String b="giri";
+    String c="pori";
+    if(a=="hari")  
+    {
+    	if(b=="giri")
+    	{
+    		//String data type comparison is case sensitive means upper case and lower case letters   		//space should be same in string comparison
+    		if(c=="po ri")
+    		{
+    			System.out.println("hello every one");
+    		}
+    		
+    		
+    	}
+    
+    }
+    		
+	}
+
+}

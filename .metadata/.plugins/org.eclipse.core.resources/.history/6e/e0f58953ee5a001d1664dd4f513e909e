@@ -1,0 +1,94 @@
+package com.OrangeHRM_Application;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class SaveEmployeeListInExcel extends AddEmployeeFunctionality{
+	
+	
+	@Test(priority=11)
+	public void ClickOnEmployeeList() throws InterruptedException
+	{
+		dr.findElement(By.id("menu_pim_viewEmployeeList")).click();
+		Thread.sleep(10000);
+		
+	
+	}
+	@Test(priority=12)
+	public void CapturingEmployeeListIntoExcel() throws IOException, InterruptedException
+	{
+		
+				
+		WebElement HeaderBlockElement=dr.findElement(By.className("top"));
+		List<WebElement>HeaderBlockLinkElements=HeaderBlockElement.findElements(By.tagName("a"));
+		int TotalNumberOfHeaderBlockLinks=HeaderBlockLinkElements.size();
+		
+		List<WebElement>HeaderBlockButtonLinkElements=HeaderBlockElement.findElements(By.className("tiptip"));
+		int TotalNumberofHeaderBlockButtonLinks=HeaderBlockButtonLinkElements.size();
+		
+		int numberofPagesOfData=TotalNumberOfHeaderBlockLinks-TotalNumberofHeaderBlockButtonLinks;
+		
+		System.out.println("number of pages of data:"+numberofPagesOfData);
+		 
+		for(int k=1;k<=numberofPagesOfData;k++)
+		{
+		WebElement EmployeeListTableElement=dr.findElement(By.id("frmList_ohrmListComponent"));
+		List<WebElement>rows=EmployeeListTableElement.findElements(By.tagName("tr"));
+		int rows_count=rows.size();
+		
+		System.out.println("number of rows of data in "+k+" page:"+rows_count);
+		
+		FileInputStream file=new FileInputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\EmployeeList.xlsx");
+		XSSFWorkbook workbook=new XSSFWorkbook(file);
+		XSSFSheet sheet=workbook.getSheet("sheet"+k);
+		
+		
+		for(int i=1;i<rows_count;i++)
+		{
+			Row row=sheet.createRow(i);
+			
+			List<WebElement>cells=rows.get(i).findElements(By.tagName("td"));
+			int cell_count=cells.size();
+			
+			for(int j=1;j<cell_count;j++)
+			{
+				String data=cells.get(j).getText();
+				System.out.print(data+" ");
+				Cell EmployeeListcell=row.createCell(j);
+				EmployeeListcell.setCellValue(data);
+			}
+			
+			System.out.println();
+		}
+			
+		FileOutputStream file1=new FileOutputStream("C:\\Users\\LENOVO\\Desktop\\Hari_java_appilications\\Excelfiles\\src\\excelfile\\EmployeeList.xlsx");
+		workbook.write(file1);
+	      
+		dr.findElement(By.linkText("Next")).click();
+		
+		Thread.sleep(30000);
+		}
+	}
+	
+	@Test(priority=13)
+	public void Logout()
+	{
+		dr.findElement(By.id("welcome")).click();
+		dr.findElement(By.linkText("Logout")).click();
+
+	
+	}
+	
+}	
+

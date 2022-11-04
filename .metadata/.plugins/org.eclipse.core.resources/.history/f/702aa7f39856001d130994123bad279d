@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OHRM Application">
+  <test thread-count="5" name="ohrm">
+    <classes>
+      <class name="com.OrangeHRM_Application.LoginFunctionality"/>
+      <class name="com.OrangeHRM_Application.AddEmployeeFunctionality"/>
+      <class name="com.OrangeHRM_Application.SaveEmployeeListInExcel"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
